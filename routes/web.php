@@ -14,7 +14,7 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
-
+Route::redirect('/', '/register')->name('dashboard');
 Route::redirect('/dashboard', '/games')->name('dashboard');
 
 Route::middleware('auth')->group(function () {
