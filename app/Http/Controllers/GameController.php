@@ -73,8 +73,6 @@ class GameController extends Controller
 
         $game->update($data);
 
-        broadcast(new PlayerMadeMove($game))->toOthers();
-
         return to_route('games.show', $game);
     }
 
