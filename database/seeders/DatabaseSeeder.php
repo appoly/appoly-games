@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Game;
+use App\Models\TicTacToe;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(10)
-            ->has(Game::factory())
+            ->has(TicTacToe::factory())
             ->create();
 
         User::factory()->create([

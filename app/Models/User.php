@@ -46,8 +46,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function games(): HasMany
+    public function rooms(): HasMany
     {
-        return $this->hasMany(Game::class, 'player_one_id');
+        return $this->hasMany(TicTacToe::class, 'player_one_id');
     }
 }

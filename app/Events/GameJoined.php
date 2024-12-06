@@ -2,10 +2,8 @@
 
 namespace App\Events;
 
-use App\Models\Game;
-use Illuminate\Broadcasting\Channel;
+use App\Models\TicTacToe;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -18,7 +16,7 @@ class GameJoined implements ShouldBroadcast
     /**
      * Create a new event instance.
      */
-    public function __construct(public readonly Game $game)
+    public function __construct(public readonly TicTacToe $tic_tac_toe)
     {
         //
     }
