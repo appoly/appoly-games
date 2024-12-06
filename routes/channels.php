@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Game;
+use App\Models\TicTacToe;
 use App\Models\User;
 use Illuminate\Support\Facades\Broadcast;
 
@@ -12,8 +12,8 @@ Broadcast::channel('lobby', function (User $user) {
     return true;
 });
 
-Broadcast::channel('games.{game}', function (User $user, Game $game) {
-    if(!in_array($user->id, [$game->player_one_id, $game->player_two_id])) {
+Broadcast::channel('room.{tic_tac_toe}', function (User $user, TicTacToe $tic_tac_toe) {
+    if(!in_array($user->id, [$tic_tac_toe->player_one_id, $tic_tac_toe->player_two_id])) {
         return false;
     }
 

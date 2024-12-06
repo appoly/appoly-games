@@ -2,11 +2,10 @@
 
 namespace App\Policies;
 
-use App\Models\Game;
+use App\Models\TicTacToe;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
-class GamePolicy
+class TicTacToePolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +18,7 @@ class GamePolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Game $game): bool
+    public function view(User $user, TicTacToe $tic_tac_toe): bool
     {
         //
     }
@@ -35,7 +34,7 @@ class GamePolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Game $game): bool
+    public function update(User $user, TicTacToe $tic_tac_toe): bool
     {
         //
     }
@@ -43,7 +42,7 @@ class GamePolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Game $game): bool
+    public function delete(User $user, TicTacToe $tic_tac_toe): bool
     {
         //
     }
@@ -51,7 +50,7 @@ class GamePolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Game $game): bool
+    public function restore(User $user, TicTacToe $tic_tac_toe): bool
     {
         //
     }
@@ -59,13 +58,17 @@ class GamePolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Game $game): bool
+    public function forceDelete(User $user, TicTacToe $tic_tac_toe): bool
     {
         //
     }
 
-    public function join(User $user, Game $game): bool
+    public function join(User $user, TicTacToe $tic_tac_toe): bool
     {
-        return $game->player_one_id !== $user->id && $game->player_two_id === null;
+        return $tic_tac_toe->player_one_id !== $user->id && $tic_tac_toe->player_two_id === null;
+    }
+
+    public function rejoin(User $user, TicTacToe $tic_tac_toe) {
+        return $tic_tac_toe->player_two_id === $user->id || $tic_tac_toe->player_one_id === $user->id;
     }
 }
