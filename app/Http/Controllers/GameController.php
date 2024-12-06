@@ -19,7 +19,7 @@ class GameController extends Controller
                     'image' => asset('images/tic-tac-toe.jpg')
                 ],
                 [
-                    'name' => 'Comming Soon',
+                    'name' => 'Coming Soon',
                     'route' => '#',
                     'image' => asset('images/hangman.jpg')
                 ],
